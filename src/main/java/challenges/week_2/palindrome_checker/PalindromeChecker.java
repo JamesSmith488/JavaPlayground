@@ -2,7 +2,7 @@ package challenges.week_2.palindrome_checker;
 
 public class PalindromeChecker {
 
-    public boolean isPalindrome(String word){
+    public static boolean isPalindrome(String word){
         String palindromeWord = "";
         char[] letters = new char[word.length()];
         for (int i = 0; i < word.length(); i++) {

@@ -5,16 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PalindromeCheckerTests {
 
-    PalindromeChecker palindromeChecker = new PalindromeChecker();
-
     @Test
     public void isPalindromeTest(){
-        assertTrue(palindromeChecker.isPalindrome("racecar"));
+        assertTrue(PalindromeChecker.isPalindrome("racecar"));
     }
 
     @Test
     public void isPalindromeTestFalse(){
-        assertFalse(palindromeChecker.isPalindrome("not a palindrome"));
+        assertFalse(PalindromeChecker.isPalindrome("not a palindrome"));
     }
 
 }
