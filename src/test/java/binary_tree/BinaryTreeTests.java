@@ -47,7 +47,9 @@ public class BinaryTreeTests {
 
     @Test
     public void getSortedTreeDescTest(){
-
+        binaryTree = new BinaryTree(5);
+        binaryTree.addElements(new int[] {9,3});
+        assertArrayEquals(new int[] {9,5,3},binaryTree.getSortedTreeDesc());
     }
 
 }

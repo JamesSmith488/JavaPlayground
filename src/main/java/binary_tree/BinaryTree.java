@@ -58,17 +58,17 @@ public class BinaryTree implements BinaryTreeI{
         Node node = rootNode;
         int[] arr = new int[getNumberOfElements()];
         resetIndex();
-        return getSortedTreeAsc(node,arr,index);
+        return getSortedTreeAsc(node,arr);
     }
 
-    private int[] getSortedTreeAsc(Node node, int[] arr, int index){
+    private int[] getSortedTreeAsc(Node node, int[] arr){
         if (!node.isLeftChildEmpty()){
-            getSortedTreeAsc(node.getLeftChild(),arr,index);
+            getSortedTreeAsc(node.getLeftChild(),arr);
         }
         arr[getIndex()] = node.getValue();
         incIndex();
         if (!node.isRightChildEmpty()){
-            getSortedTreeAsc(node.getRightChild(),arr,index);
+            getSortedTreeAsc(node.getRightChild(),arr);
         }
         return arr;
     }
@@ -87,7 +87,22 @@ public class BinaryTree implements BinaryTreeI{
 
     @Override
     public int[] getSortedTreeDesc() {
-        return new int[0];
+        Node node = rootNode;
+        int[] arr = new int[getNumberOfElements()];
+        resetIndex();
+        return getSortedTreeDesc(node,arr);
+    }
+
+    private int[] getSortedTreeDesc(Node node, int[] arr){
+        if (!node.isRightChildEmpty()){
+            getSortedTreeDesc(node.getRightChild(),arr);
+        }
+        arr[getIndex()] = node.getValue();
+        incIndex();
+        if (!node.isLeftChildEmpty()){
+            getSortedTreeDesc(node.getLeftChild(),arr);
+        }
+        return arr;
     }
 
     private Node findNode(final int element){
