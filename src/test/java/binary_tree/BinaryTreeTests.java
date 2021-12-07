@@ -2,6 +2,7 @@ package binary_tree;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BinaryTreeTests {
@@ -39,7 +40,9 @@ public class BinaryTreeTests {
 
     @Test
     public void getSortedTreeAscTest(){
-
+        binaryTree = new BinaryTree(5);
+        binaryTree.addElements(new int[] {9,3});
+        assertArrayEquals(new int[] {3,5,9},binaryTree.getSortedTreeAsc());
     }
 
     @Test
