@@ -24,16 +24,11 @@ public class ArrayMerge {
     }
 
     public static int[] arrayMergerAsc(int[] arr1, int[] arr2){
-        //Makes an array of ints with enough space to fit all elements of both inputted arrays
-        int[] mergedArr = new int[arr1.length + arr2.length];
-        //Loops through the first array adding its elements
-        for (int i = 0; i < arr1.length; i++) {
-            mergedArr[i] = arr1[i];
-        }
-        //Loops through the second array adding its elements, offset by the length of the first array
-        for (int i = 0; i < arr2.length; i++) {
-            mergedArr[arr1.length + i] = arr2[i];
-        }
+        int[] mergedArr = arrayMerger(arr1,arr2);
+        return arrayMergerAsc(mergedArr);
+    }
+
+    public static int[] arrayMergerAsc(int[] mergedArr){
         //Bubble sort ascending
         int i = 1;
         int j;
@@ -52,16 +47,11 @@ public class ArrayMerge {
     }
 
     public static int[] arrayMergerDesc(int[] arr1, int[] arr2){
-        //Makes an array of ints with enough space to fit all elements of both inputted arrays
-        int[] mergedArr = new int[arr1.length + arr2.length];
-        //Loops through the first array adding its elements
-        for (int i = 0; i < arr1.length; i++) {
-            mergedArr[i] = arr1[i];
-        }
-        //Loops through the second array adding its elements, offset by the length of the first array
-        for (int i = 0; i < arr2.length; i++) {
-            mergedArr[arr1.length + i] = arr2[i];
-        }
+        int[] mergedArr = arrayMerger(arr1,arr2);
+        return arrayMergerDesc(mergedArr);
+    }
+
+    public static int[] arrayMergerDesc(int[] mergedArr){
         //Bubble sort descending
         int i = 1;
         int j;
@@ -80,16 +70,11 @@ public class ArrayMerge {
     }
 
     public static int[] arrayMergerDupes(int[] arr1, int[] arr2){
-        //Makes an array of ints with enough space to fit all elements of both inputted arrays
-        int[] mergedArr = new int[arr1.length + arr2.length];
-        //Loops through the first array adding its elements
-        for (int i = 0; i < arr1.length; i++) {
-            mergedArr[i] = arr1[i];
-        }
-        //Loops through the second array adding its elements, offset by the length of the first array
-        for (int i = 0; i < arr2.length; i++) {
-            mergedArr[arr1.length + i] = arr2[i];
-        }
+        int[] mergedArr = arrayMerger(arr1,arr2);
+        return arrayMergerDupes(mergedArr);
+    }
+
+    public static int[] arrayMergerDupes(int[] mergedArr){
 
         /*
         Add dupes filtering
