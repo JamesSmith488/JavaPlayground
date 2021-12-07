@@ -19,8 +19,20 @@ public class ArrayMergeTests {
     }
 
     @Test
+    public void arrayMergeAscTest2(){
+        int[] mergedArray = ArrayMerge.arrayMerger(arr1, arr2);
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6}, ArrayMerge.arrayMergerAsc(mergedArray));
+    }
+
+    @Test
     public void arrayMergeDescTest(){
         assertArrayEquals(new int[]{6, 5, 4, 3, 2, 1}, ArrayMerge.arrayMergerDesc(arr1, arr2));
+    }
+
+    @Test
+    public void arrayMergeDescTest2(){
+        int[] mergedArray = ArrayMerge.arrayMerger(arr1, arr2);
+        assertArrayEquals(new int[]{6, 5, 4, 3, 2, 1}, ArrayMerge.arrayMergerDesc(mergedArray));
     }
 
     /*
