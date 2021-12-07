@@ -16,10 +16,19 @@ public class BinaryTree implements BinaryTreeI{
     public int getNumberOfElements() {
         int total = 1;
         Node node = rootNode;
-        if (!node.isLeftChildEmpty()){
-
+        boolean fin = false;
+        while (fin){
+            if (!node.isLeftChildEmpty()){
+                total++;
+                node = node.getLeftChild();
+            } else if (!node.isRightChildEmpty()){
+                total++;
+                node = node.getRightChild();
+            }else {
+                fin = true;
+            }
         }
-        return 0;
+        return total;
     }
 
     @Override
