@@ -16,17 +16,17 @@ public class BinaryTree implements BinaryTreeI{
     public int getNumberOfElements() {
         int total = 1;
         Node node = rootNode;
-        boolean fin = false;
-        while (fin){
-            if (!node.isLeftChildEmpty()){
-                total++;
-                node = node.getLeftChild();
-            } else if (!node.isRightChildEmpty()){
-                total++;
-                node = node.getRightChild();
-            }else {
-                fin = true;
-            }
+        return getNumberOfElements(node,total);
+    }
+
+    private int getNumberOfElements(Node node, int total){
+        if (!node.isLeftChildEmpty()){
+            total++;
+            getNumberOfElements(node.getLeftChild(),total);
+        }
+        if (!node.isRightChildEmpty()){
+            total++;
+            getNumberOfElements(node.getRightChild(),total);
         }
         return total;
     }
@@ -38,7 +38,9 @@ public class BinaryTree implements BinaryTreeI{
 
     @Override
     public void addElements(int[] elements) {
-
+        for (int element: elements) {
+            addNodeToTree(rootNode, element);
+        }
     }
 
     @Override
