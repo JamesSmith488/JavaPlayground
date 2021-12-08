@@ -16,8 +16,7 @@ public class BinaryTree implements BinaryTreeI{
     @Override
     public int getNumberOfElements() {
         int total = 1;
-        Node node = rootNode;
-        return getNumberOfElements(node,total);
+        return getNumberOfElements(rootNode,total);
     }
 
     private int getNumberOfElements(Node node, int total){
@@ -47,18 +46,14 @@ public class BinaryTree implements BinaryTreeI{
     @Override
     public boolean findElement(final int value){
         Node node = findNode(value);
-        if (node != null){
-            return true;
-        }
-        return false;
+        return node != null;
     }
 
     @Override
     public int[] getSortedTreeAsc() {
-        Node node = rootNode;
         int[] arr = new int[getNumberOfElements()];
         resetIndex();
-        return getSortedTreeAsc(node,arr);
+        return getSortedTreeAsc(rootNode,arr);
     }
 
     private int[] getSortedTreeAsc(Node node, int[] arr){
@@ -87,10 +82,9 @@ public class BinaryTree implements BinaryTreeI{
 
     @Override
     public int[] getSortedTreeDesc() {
-        Node node = rootNode;
         int[] arr = new int[getNumberOfElements()];
         resetIndex();
-        return getSortedTreeDesc(node,arr);
+        return getSortedTreeDesc(rootNode,arr);
     }
 
     private int[] getSortedTreeDesc(Node node, int[] arr){
