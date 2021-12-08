@@ -75,12 +75,27 @@ public class ArrayMerge {
     }
 
     public static int[] arrayMergerDupes(int[] mergedArr){
-
-        /*
-        Add dupes filtering
-        */
-
-        return mergedArr;
+        int[] tempArr = new int[mergedArr.length];
+        boolean contains;
+        int length = 0;
+        for (int i = 0; i < mergedArr.length; i++) {
+            contains = false;
+            for (int j = 0; j < tempArr.length; j++) {
+                if (mergedArr[i] == tempArr[j]){
+                    contains = true;
+                    break;
+                }
+            }
+            if (!contains){
+                tempArr[i] = mergedArr[i];
+                length++;
+            }
+        }
+        int[] uniqueArr = new int[length];
+        for (int i = 0; i < uniqueArr.length; i++) {
+            uniqueArr[i] = tempArr[i];
+        }
+        return uniqueArr;
     }
 
 }
