@@ -35,12 +35,10 @@ public class ArrayMergeTests {
         assertArrayEquals(new int[]{6, 5, 4, 3, 2, 1}, ArrayMerge.arrayMergerDesc(mergedArray));
     }
 
-    /*
     @Test
     public void arrayMergeDupesTest(){
         arr2 = new int[]{1, 2, 4};
         assertArrayEquals(new int[]{4, 5, 6, 1, 2}, ArrayMerge.arrayMergerDupes(arr1,arr2));
     }
-     */
 
 }
