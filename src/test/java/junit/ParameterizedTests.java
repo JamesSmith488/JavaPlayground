@@ -2,6 +2,7 @@ package junit;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
@@ -10,13 +11,15 @@ import java.util.stream.Stream;
 
 public class ParameterizedTests {
 
-
-
-    @ParameterizedTest(name = "[{index}] Testing for value = {arguments}")
-    @ValueSource(ints = {2,0,10,15,13})
-    @DisplayName("Using ints for a parameterized test")
-    void doTest(int number){
-        Assertions.assertTrue(number<10);
+    @Nested
+    @DisplayName("Nested Class - helps readability")
+    class nestedTest {
+        @ParameterizedTest(name = "[{index}] Testing for value = {arguments}")
+        @ValueSource(ints = {2, 0, 10, 15, 13})
+        @DisplayName("Using ints for a parameterized test")
+        void doTest(int number) {
+            Assertions.assertTrue(number < 10);
+        }
     }
 
     @ParameterizedTest
