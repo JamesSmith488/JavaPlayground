@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -22,7 +22,7 @@ public class BinaryTreeTests {
 
     @Nested
     @DisplayName("JUnit tests")
-    class junitTests {
+    class JUnitTests {
 
         @Test
         @DisplayName("Get root element test")
@@ -54,11 +54,35 @@ public class BinaryTreeTests {
             assertArrayEquals(new int[]{9, 5, 3}, binaryTree.getSortedTreeDesc());
         }
 
+        @Test
+        @DisplayName("Get the left child of a given element")
+        public void getLeftChildTest() throws ChildNotFoundException {
+            assertEquals(3,binaryTree.getLeftChild(5));
+        }
+
+        @Test
+        @DisplayName("Get the right child of a given element")
+        public void getRightChildTest() throws ChildNotFoundException {
+            assertEquals(9,binaryTree.getRightChild(5));
+        }
+
+        @Test
+        @DisplayName("Asserts that getLeftChild will throw ChildNotFoundException")
+        public void getLeftChildExceptionTest() {
+            assertThrows(ChildNotFoundException.class, () -> binaryTree.getLeftChild(9));
+        }
+
+        @Test
+        @DisplayName("Asserts that getRightChild will throw ChildNotFoundException")
+        public void getRightChildExceptionTest() {
+            assertThrows(ChildNotFoundException.class, () -> binaryTree.getRightChild(9));
+        }
+
     }
 
     @Nested
     @DisplayName("Hamcrest tests")
-    class hamcrestTests {
+    class HamcrestTests {
 
         @Test
         @DisplayName("Get root element test")
@@ -82,15 +106,25 @@ public class BinaryTreeTests {
         @Test
         @DisplayName("Get the tree in an ascending order")
         public void getSortedTreeAscTest() {
-            //assertArrayEquals(new int[]{3, 5, 9}, binaryTree.getSortedTreeAsc());
             assertThat(binaryTree.getSortedTreeAsc(), equalTo(new int[]{3, 5, 9}));
         }
 
         @Test
         @DisplayName("Get the tree in an descending order")
         public void getSortedTreeDescTest() {
-            //assertArrayEquals(new int[]{9, 5, 3}, binaryTree.getSortedTreeDesc());
             assertThat(binaryTree.getSortedTreeDesc(), equalTo(new int[]{9, 5, 3}));
+        }
+
+        @Test
+        @DisplayName("Get the left child of a given element")
+        public void getLeftChildTest() throws ChildNotFoundException {
+            assertThat(binaryTree.getLeftChild(5),equalTo(3));
+        }
+
+        @Test
+        @DisplayName("Get the right child of a given element")
+        public void getRightChildTest() throws ChildNotFoundException {
+            assertThat(binaryTree.getRightChild(5),equalTo(9));
         }
 
     }

@@ -114,6 +114,22 @@ public class BinaryTree implements BinaryTreeI{
         return arr;
     }
 
+    @Override
+    public int getLeftChild(int element) throws ChildNotFoundException {
+        if (findNode(element).getLeftChild() == null){
+            throw new ChildNotFoundException("Error");
+        }
+        return findNode(element).getLeftChild().getValue();
+    }
+
+    @Override
+    public int getRightChild(int element) throws ChildNotFoundException{
+        if (findNode(element).getRightChild() == null){
+            throw new ChildNotFoundException("Error");
+        }
+        return findNode(element).getRightChild().getValue();
+    }
+
     private Node findNode(final int element){
         Node node = rootNode;
         while (node != null){
