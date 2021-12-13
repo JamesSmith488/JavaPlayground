@@ -4,9 +4,11 @@ public class BinaryTree implements BinaryTreeI{
 
     private final Node rootNode;
     private int index;
+    private int numberOfElements;
 
     public BinaryTree(final int element){
         rootNode = new Node(element);
+        numberOfElements = 1;
     }
 
     @Override
@@ -16,27 +18,13 @@ public class BinaryTree implements BinaryTreeI{
 
     @Override
     public int getNumberOfElements() {
-        int total = 1;
-        return getNumberOfElements(rootNode,total);
-    }
-
-    private int getNumberOfElements(Node node, int total){
-        //Checks for left node, increments total, then traverses to it and recurs
-        if (!node.isLeftChildEmpty()){
-            total++;
-            getNumberOfElements(node.getLeftChild(),total);
-        }
-        //Checks for right node, increments total, then traverses to it and recurs
-        if (!node.isRightChildEmpty()){
-            total++;
-            getNumberOfElements(node.getRightChild(),total);
-        }
-        return total;
+        return numberOfElements;
     }
 
     @Override
     public void addElement(final int element){
         addNodeToTree(rootNode, element);
+        numberOfElements++;
     }
 
     @Override
