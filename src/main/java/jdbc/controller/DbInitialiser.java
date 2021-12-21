@@ -30,8 +30,4 @@ public class DbInitialiser {
         initialiseEmployeeTable();
     }
 
-    public static void main(String[] args) {
-        initialiseDbFirstInstance();
-    }
-
 }
